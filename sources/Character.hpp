@@ -2,6 +2,7 @@
 #define CHARACTER_HPP
 
 #include <iostream>
+
 #include "Point.hpp"
 
 namespace ariel
@@ -14,17 +15,17 @@ namespace ariel
         int hitPoints;
 
     public:
-        Character(const std::string &name, const Point &location, int hitPoints);
-        Character(const Character &other); 
-        Character& operator=(const Character &other); 
+        Character(const std::string &name,const Point &location, int hitPoints);
+        Character(Character &other);
+        Character &operator=(Character &other);
         virtual ~Character() = default;
-        bool isAlive() const;
-        double distance(const Character &other) const;
+        bool isAlive();
+        double distance(Character &other);
         void hit(int damage);
-        std::string getName() const;
-        Point getLocation() const;
+        std::string getName();
+        Point getLocation();
         int getHitPoints();
-        virtual std::string print() const
+        virtual std::string print()
         {
             return "Character: ";
         }

@@ -8,12 +8,12 @@ YoungNinja::YoungNinja(const std::string &name, const Point &location)
 {
 }
 
-YoungNinja::YoungNinja(const YoungNinja &other)
+YoungNinja::YoungNinja(YoungNinja &other)
     : Ninja(other)
 {
 }
 
-YoungNinja& YoungNinja::operator=(const YoungNinja &other)
+YoungNinja& YoungNinja::operator=(YoungNinja &other)
 {
     if (this != &other)
     {

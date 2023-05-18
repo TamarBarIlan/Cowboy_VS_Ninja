@@ -19,11 +19,19 @@ using namespace ariel;
 
 int main() {
     Point a(32.3,44),b(1.3,3.5);
-    assert(a.distance(b) == b.distance(a));
+    cout << a.print() << endl;
+    cout << b.print() << endl;
+    assert(a.distance(b) == b.distance(a)) ;
     Cowboy *tom = new Cowboy("Tom", a);
+    
+
+
     OldNinja *sushi = new OldNinja("sushi", b);
+    cout << "boollets befor shoot = " << tom->getBoollets() << endl;
     tom->shoot(sushi);
+    cout << "boollets after shoot = " << tom->getBoollets() << endl;
     cout << tom->print() <<endl;
+    cout << tom->getBoollets() << endl;
 
     sushi->move(tom);
     sushi->slash(tom);

@@ -10,8 +10,8 @@ namespace ariel
     {
     public:
         TrainedNinja(const std::string &name, const Point &location);
-        TrainedNinja(const TrainedNinja &other); 
-        TrainedNinja& operator=(const TrainedNinja &other); 
+        TrainedNinja(TrainedNinja &other); 
+        TrainedNinja& operator=(TrainedNinja &other); 
     };
 }
 

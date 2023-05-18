@@ -1,20 +1,20 @@
 #include "Character.hpp"
-#include <iostream>
 
 using namespace ariel;
 using namespace std;
 
-Character::Character(const std::string &name, const Point &location, int hitPoints)
+Character::Character(const std::string &name,const Point &location, int hitPoints)
     : name(name), location(location), hitPoints(hitPoints)
 {
 }
 
-Character::Character(const Character &other)
+
+Character::Character(Character &other)
     : name(other.name), location(other.location), hitPoints(other.hitPoints)
 {
 }
 
-Character& Character::operator=(const Character &other)
+Character &Character::operator=(Character &other)
 {
     if (this != &other)
     {
@@ -25,26 +25,27 @@ Character& Character::operator=(const Character &other)
     return *this;
 }
 
-bool Character::isAlive() const
+bool Character::isAlive()
 {
     return hitPoints > 0;
 }
 
-double Character::distance(const Character &other) const
+double Character::distance(Character &other)
 {
-    return 0.0;
+    return this->location.distance(other.location);
 }
 
 void Character::hit(int damage)
 {
+    this->hitPoints -= damage;
 }
 
-std::string Character::getName() const
+std::string Character::getName()
 {
     return name;
 }
 
-Point Character::getLocation() const
+Point Character::getLocation()
 {
     return location;
 }

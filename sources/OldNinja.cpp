@@ -8,12 +8,12 @@ OldNinja::OldNinja(const std::string &name, const Point &location)
 {
 }
 
-OldNinja::OldNinja(const OldNinja &other)
+OldNinja::OldNinja(OldNinja &other)
     : Ninja(other)
 {
 }
 
-OldNinja& OldNinja::operator=(const OldNinja &other)
+OldNinja& OldNinja::operator=(OldNinja &other)
 {
     if (this != &other)
     {

@@ -8,12 +8,12 @@ TrainedNinja::TrainedNinja(const std::string &name, const Point &location)
 {
 }
 
-TrainedNinja::TrainedNinja(const TrainedNinja &other)
+TrainedNinja::TrainedNinja(TrainedNinja &other)
     : Ninja(other)
 {
 }
 
-TrainedNinja& TrainedNinja::operator=(const TrainedNinja &other)
+TrainedNinja& TrainedNinja::operator=(TrainedNinja &other)
 {
     if (this != &other)
     {

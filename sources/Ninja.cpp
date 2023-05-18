@@ -8,12 +8,12 @@ Ninja::Ninja(const std::string &name, const Point &location, int hitPoints, int 
 {
 }
 
-Ninja::Ninja(const Ninja &other)
+Ninja::Ninja(Ninja &other)
     : Character(other), speed(other.speed)
 {
 }
 
-Ninja& Ninja::operator=(const Ninja &other)
+Ninja &Ninja::operator=(Ninja &other)
 {
     if (this != &other)
     {
@@ -36,7 +36,7 @@ int Ninja::getSpeed()
     return speed;
 }
 
-std::string Ninja::print() const
+std::string Ninja::print()
 {
     return "hi";
 }

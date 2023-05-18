@@ -9,17 +9,17 @@ namespace ariel
     class Cowboy : public Character
     {
     private:
-        int bullets;
+        int boollets;
 
     public:
-        Cowboy(const std::string &nameVal, Point &locationVal);
-        Cowboy(const Cowboy &other); 
-        Cowboy &operator=(const Cowboy &other); 
+        Cowboy(const std:: string &name, const Point &location);
+        Cowboy(Cowboy &other);
+        Cowboy &operator=(Cowboy &other);
         void shoot(Character *enemy);
-        bool hasBullets() const;
+        bool hasboolets();
         void reload();
-        int getBullets();
-        std::string print() const override;
+        int getBoollets();
+        std::string print() override;
     };
 }
 

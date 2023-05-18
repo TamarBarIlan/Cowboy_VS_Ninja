@@ -100,17 +100,17 @@ TEST_SUITE("Point class tests") {
 
 }
 
-// TEST_SUITE("Classes initialization tests and Team modification( add(),stillAlive() )") {
+TEST_SUITE("Classes initialization tests and Team modification( add(),stillAlive() )") {
 
-//     TEST_CASE("Cowboy initialization") {
-//         Cowboy cowboy{"Bob", Point{2, 3}};
-//         CHECK(cowboy.hasboolets());
-//         CHECK_EQ(cowboy.getName(), "Bob");
-//         CHECK_EQ(cowboy.getLocation().distance(Point{2, 3}), 0);
-//         CHECK_NE(cowboy.getLocation().distance(Point{3, 2}), 0);
+    TEST_CASE("Cowboy initialization") {
+        Cowboy cowboy{"Bob", Point{2, 3}};
+        CHECK(cowboy.hasboolets());
+        CHECK_EQ(cowboy.getName(), "Bob");
+        // CHECK_EQ(cowboy.getLocation().distance(Point{2, 3}), 0);
+        // CHECK_NE(cowboy.getLocation().distance(Point{3, 2}), 0);
 
-//         CHECK(cowboy.isAlive());
-//     }
+        CHECK(cowboy.isAlive());
+    }
 
 //     TEST_CASE("YoungNinja initialization") {
 //         YoungNinja ninja{"Bob", Point{2, 3}};
@@ -171,7 +171,7 @@ TEST_SUITE("Point class tests") {
 //         CHECK_THROWS_AS(team1.add(over),std::runtime_error);
 //         CHECK_THROWS_AS(team2.add(over),std::runtime_error);
 //         delete over;
-//     }
+    // }
 
 //     TEST_CASE("Appointing the same captain to different teams") {
 //         auto captain = create_cowboy();
@@ -206,7 +206,7 @@ TEST_SUITE("Point class tests") {
 //         CHECK_THROWS_AS(team2.add(teammate2),std::runtime_error);
 //         CHECK_THROWS_AS(team3.add(teammate2),std::runtime_error);
 //     }
-// }
+}
 
 
 // TEST_SUITE("Battle related methods") {
