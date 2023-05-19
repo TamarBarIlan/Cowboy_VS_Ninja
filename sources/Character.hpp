@@ -13,18 +13,22 @@ namespace ariel
         std::string name;
         Point location;
         int hitPoints;
+        bool inTeam;
 
     public:
-        Character(const std::string &name,const Point &location, int hitPoints);
+        Character(const std::string &name, const Point &location, int hitPoints);
         Character(Character &other);
         Character &operator=(Character &other);
         virtual ~Character() = default;
         bool isAlive();
-        double distance(Character &other);
+        double distance(const Character &other); // const***********
         void hit(int damage);
         std::string getName();
         Point getLocation();
+        void setLocation(Point location);
         int getHitPoints();
+        bool getInTeam();
+        void setInTeam(bool ans);
         virtual std::string print()
         {
             return "Character: ";

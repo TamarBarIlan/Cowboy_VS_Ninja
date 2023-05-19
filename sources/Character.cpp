@@ -4,7 +4,7 @@ using namespace ariel;
 using namespace std;
 
 Character::Character(const std::string &name,const Point &location, int hitPoints)
-    : name(name), location(location), hitPoints(hitPoints)
+    : name(name), location(location), hitPoints(hitPoints), inTeam(false)
 {
 }
 
@@ -30,7 +30,7 @@ bool Character::isAlive()
     return hitPoints > 0;
 }
 
-double Character::distance(Character &other)
+double Character::distance(const Character &other)
 {
     return this->location.distance(other.location);
 }
@@ -49,8 +49,20 @@ Point Character::getLocation()
 {
     return location;
 }
-
+void Character::setLocation(Point location)
+{
+    this->location = location;
+}
 int Character::getHitPoints()
 {
     return hitPoints;
 }
+bool Character::getInTeam()
+{
+    return this->inTeam;
+}
+void Character::setInTeam(bool ans)
+{
+    this->inTeam = ans;
+}
+

@@ -16,7 +16,7 @@ namespace ariel
     class Team
     {
     private:
-        std::vector<std::unique_ptr<Character>> fighters; 
+        std::vector<Character*> fighters; 
         Character *leader;
 
     public:
@@ -25,7 +25,7 @@ namespace ariel
         void add(Character *fight);
         void attack(Team *enemyTeam);
         int stillAlive() const;
-        void print() const;
+        std::string print() const;
         Character* findNextVictim(Character* leader);
         Character* findClosest(Point location);
     };
