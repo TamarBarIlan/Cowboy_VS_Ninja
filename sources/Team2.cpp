@@ -1,5 +1,5 @@
-// #include "Team2.hpp"
-// using namespace ariel;
-// using namespace std;
+#include "Team2.hpp"
+using namespace ariel;
+using namespace std;
 
-// Team2::Team2(Character& leader) : Team(leader) {}
+Team2::Team2(Character* leader) : Team(leader) {}

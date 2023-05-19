@@ -13,9 +13,9 @@ private:
 public:
     Point ();
     Point(double x = 0, double y = 0);
-    double distance(Point &other) ;
+    double distance(const Point &other) const;
     std::string print();
-    static Point moveTowards(Point &source,  Point &destination, double distance);
+    static Point moveTowards(const Point &source,const Point &destination, double distance);
     double getX();
     double getY();
 };

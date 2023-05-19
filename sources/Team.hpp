@@ -26,19 +26,10 @@ namespace ariel
         void attack(Team *enemyTeam);
         int stillAlive() const;
         void print() const;
+        Character* findNextVictim(Character* leader);
+        Character* findClosest(Point location);
     };
 
-    class Team2 : public Team
-    {
-    public:
-        Team2(Character *leader);
-    };
-
-    class SmartTeam : public Team
-    {
-    public:
-        SmartTeam(Character *leader);
-    };
 }
 
 #endif /* TEAM_HPP */

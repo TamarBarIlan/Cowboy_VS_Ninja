@@ -3,7 +3,7 @@
 Point::Point(double x, double y) : x(x), y(y)
 {
 }
-double Point::distance(Point &other)
+double Point::distance(const Point &other) const
 {
     return std::sqrt(std::pow(other.x - this->x, 2) + std::pow(other.y - this->y, 2));
 }
@@ -14,7 +14,7 @@ std::string Point::print()
     return ss.str();
 }
 
-Point Point::moveTowards(Point &source, Point &destination, double distance)
+Point Point::moveTowards(const Point &source,const Point &destination, double distance)
 {
     if (distance < 0)
     {

@@ -12,13 +12,13 @@ namespace ariel
         int speed;
 
     public:
-        Ninja(const std::string &name,const Point &location, int hitPoints, int speed);
-        Ninja( Ninja &other); 
-        Ninja& operator=( Ninja &other); 
+        Ninja(const std::string &name, const Point &location, int hitPoints, int speed);
+        Ninja(Ninja &other);
+        Ninja &operator=(Ninja &other);
         void move(Character *enemy);
         void slash(Character *enemy);
         int getSpeed();
-        std::string print()  override;
+        std::string print() override;
     };
 }
 

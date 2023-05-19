@@ -106,38 +106,38 @@ TEST_SUITE("Classes initialization tests and Team modification( add(),stillAlive
         Cowboy cowboy{"Bob", Point{2, 3}};
         CHECK(cowboy.hasboolets());
         CHECK_EQ(cowboy.getName(), "Bob");
-        // CHECK_EQ(cowboy.getLocation().distance(Point{2, 3}), 0);
-        // CHECK_NE(cowboy.getLocation().distance(Point{3, 2}), 0);
+        CHECK_EQ(cowboy.getLocation().distance(Point{2, 3}), 0);
+        CHECK_NE(cowboy.getLocation().distance(Point{3, 2}), 0);
 
         CHECK(cowboy.isAlive());
     }
 
-//     TEST_CASE("YoungNinja initialization") {
-//         YoungNinja ninja{"Bob", Point{2, 3}};
-//         CHECK_EQ(ninja.getName(), "Bob");
-//         CHECK_EQ(ninja.getLocation().distance(Point{2, 3}), 0);
-//         CHECK_NE(ninja.getLocation().distance(Point{3, 2}), 0);
+    TEST_CASE("YoungNinja initialization") {
+        YoungNinja ninja{"Bob", Point{2, 3}};
+        CHECK_EQ(ninja.getName(), "Bob");
+        CHECK_EQ(ninja.getLocation().distance(Point{2, 3}), 0);
+        CHECK_NE(ninja.getLocation().distance(Point{3, 2}), 0);
 
-//         CHECK(ninja.isAlive());
-//     }
+        CHECK(ninja.isAlive());
+    }
 
-//     TEST_CASE("OldNinja initialization") {
-//         OldNinja old_ninja{"Bob", Point(2, 3)};
-//         CHECK_EQ(old_ninja.getName(), "Bob");
-//         CHECK_EQ(old_ninja.getLocation().distance(Point{2, 3}), 0);
-//         CHECK_NE(old_ninja.getLocation().distance(Point{3, 2}), 0);
+    TEST_CASE("OldNinja initialization") {
+        OldNinja old_ninja{"Bob", Point(2, 3)};
+        CHECK_EQ(old_ninja.getName(), "Bob");
+        CHECK_EQ(old_ninja.getLocation().distance(Point{2, 3}), 0);
+        CHECK_NE(old_ninja.getLocation().distance(Point{3, 2}), 0);
 
-//         CHECK(old_ninja.isAlive());
-//     }
+        CHECK(old_ninja.isAlive());
+    }
 
-//     TEST_CASE("TrainedNinja initialization") {
-//         TrainedNinja trained_ninja{"Bob", Point{2, 3}};
-//         CHECK_EQ(trained_ninja.getName(), "Bob");
-//         CHECK_EQ(trained_ninja.getLocation().distance(Point{2, 3}), 0);
-//         CHECK_NE(trained_ninja.getLocation().distance(Point{3, 2}), 0);
+    TEST_CASE("TrainedNinja initialization") {
+        TrainedNinja trained_ninja{"Bob", Point{2, 3}};
+        CHECK_EQ(trained_ninja.getName(), "Bob");
+        CHECK_EQ(trained_ninja.getLocation().distance(Point{2, 3}), 0);
+        CHECK_NE(trained_ninja.getLocation().distance(Point{3, 2}), 0);
 
-//         CHECK(trained_ninja.isAlive());
-//     }
+        CHECK(trained_ninja.isAlive());
+    }
 
 //     TEST_CASE("Team initialization") {
 //         auto cowboy = create_cowboy(2, 3);

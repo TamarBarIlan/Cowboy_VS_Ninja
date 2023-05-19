@@ -25,18 +25,40 @@ Ninja &Ninja::operator=(Ninja &other)
 
 void Ninja::move(Character *enemy)
 {
+    this->getLocation() = Point::moveTowards(this->getLocation(), enemy->getLocation(), speed);
 }
 
 void Ninja::slash(Character *enemy)
 {
+    if (this->isAlive())
+    {
+        double distance = this->getLocation().distance(enemy->getLocation());
+
+        if (distance < 1.0)
+        {
+            enemy->hit(40);
+        }
+    }
 }
 
 int Ninja::getSpeed()
 {
-    return speed;
+    return this->speed;
 }
 
-std::string Ninja::print()
-{
-    return "hi";
+std::string Ninja::print() {
+    
+    std::stringstream ss;
+
+    ss << "N: ";
+
+    if (this->getHitPoints() <= 0) {
+        ss << "(" << this->getName() << ") ";
+    } else {
+        ss << this->getName() << " " << this->getHitPoints() << " ";
+    }
+
+    ss << this->getLocation().print();
+
+    return ss.str();
 }

@@ -25,5 +25,3 @@ void Team::print() const
 {
 }
 
-Team2::Team2(Character* leader) : Team(leader) {}
-SmartTeam::SmartTeam(Character* leader) : Team(leader) {}

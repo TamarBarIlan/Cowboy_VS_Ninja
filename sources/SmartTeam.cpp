@@ -1,5 +1,5 @@
-// #include "SmartTeam.hpp"
-// using namespace ariel;
-// using namespace std;
+#include "SmartTeam.hpp"
+using namespace ariel;
+using namespace std;
 
-// SmartTeam::SmartTeam(Character& leader) : Team(leader) {}
+SmartTeam::SmartTeam(Character* leader) : Team(leader) {}
