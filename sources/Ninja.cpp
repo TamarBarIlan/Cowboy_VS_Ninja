@@ -38,6 +38,10 @@ void Ninja::slash(Character *enemy)
     {
         throw runtime_error("Dead character cant do slash");
     }
+    else if(enemy == this)
+    {
+        throw runtime_error("cant do slashto hiself");
+    }
     else
     {
         double distance = this->getLocation().distance(enemy->getLocation());

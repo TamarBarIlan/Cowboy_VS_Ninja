@@ -279,21 +279,21 @@ TEST_SUITE("Battle related methods") {
     //     YoungNinja young{"Karate kid", Point{random_float(0) + 15, random_float(0) + 15}};
     //     Cowboy cowboy{"Clint", Point{0, 0}}; 
 
-        // double old_distance = old.distance(&cowboy);
-        // double young_distance = young.distance(&cowboy);
-        // double trained_distance = trained.distance(&cowboy);
+    //     double old_distance = old.distance(&cowboy);
+    //     double young_distance = young.distance(&cowboy);
+    //     double trained_distance = trained.distance(&cowboy);
 
-        // old.move(&cowboy);
-        // trained.move(&cowboy);
-        // young.move(&cowboy);
+    //     old.move(&cowboy);
+    //     trained.move(&cowboy);
+    //     young.move(&cowboy);
 
-        // // The new distance should equal the old distance minus the speed of the specific ninja
-        // CHECK_EQ(old.distance(&cowboy),
-        //          doctest::Approx(old_distance - 8).epsilon(0.001));
-        // CHECK_EQ(trained.distance(&cowboy),
-        //          doctest::Approx(trained_distance - 12).epsilon(0.001));
-        // CHECK_EQ(young.distance(&cowboy),
-        //          doctest::Approx(young_distance - 14).epsilon(0.001));
+    //     // The new distance should equal the old distance minus the speed of the specific ninja
+    //     CHECK_EQ(old.distance(&cowboy),
+    //              doctest::Approx(old_distance - 8).epsilon(0.001));
+    //     CHECK_EQ(trained.distance(&cowboy),
+    //              doctest::Approx(trained_distance - 12).epsilon(0.001));
+    //     CHECK_EQ(young.distance(&cowboy),
+    //              doctest::Approx(young_distance - 14).epsilon(0.001));
     // }
 
     TEST_CASE("Ninjas can only slash when distance is less than 1") {

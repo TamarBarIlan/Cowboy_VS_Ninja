@@ -37,6 +37,10 @@ double Character::distance(const Character &other)
 
 void Character::hit(int damage)
 {
+    if(damage < 0)
+    {
+        throw invalid_argument("can not hit with a negative number");
+    }
     this->hitPoints -= damage;
 }
 
