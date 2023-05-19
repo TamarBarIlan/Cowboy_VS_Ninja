@@ -22,7 +22,15 @@ namespace ariel
         }
         else
         {
-            this->fighters.push_back(fighter);
+            if (Cowboy *cowboy = dynamic_cast<Cowboy *>(fighter))
+            {
+                fighters.insert(fighters.begin(), fighter);
+            }
+            else
+            {
+                fighters.push_back(fighter);
+            }
+            // this->fighters.push_back(fighter);
             fighter->setInTeam(true);
         }
     }
@@ -135,6 +143,11 @@ namespace ariel
             result += "\n";
         }
         return result;
+    }
+
+    vector<Character*>& Team::getFighters()
+    {
+        return this->fighters;
     }
 }
 

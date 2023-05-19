@@ -22,12 +22,13 @@ namespace ariel
     public:
         Team(Character *leader);
         ~Team() = default;
-        void add(Character *fight);
+        virtual void add(Character *fight);
         void attack(Team *enemyTeam);
         int stillAlive() const;
         std::string print() const;
         Character* findNextVictim(Character* leader);
         Character* findClosest(Point location);
+        std::vector<Character*>& getFighters();
     };
 
 }

@@ -11,6 +11,7 @@ namespace ariel
     {
     public:
         Team2(Character *leader);
+        void add(Character* fighter) override;
     };
 }
 
