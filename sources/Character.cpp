@@ -69,4 +69,8 @@ void Character::setInTeam(bool ans)
 {
     this->inTeam = ans;
 }
+double Character::distance(Character* other)
+{
+    return this->getLocation().distance(other->getLocation());
+}
 

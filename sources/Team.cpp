@@ -75,14 +75,13 @@ namespace ariel
         {
             throw invalid_argument("Enemy/leader is nullptr");
         }
-
+        if (!enemyTeam->stillAlive())
+        {
+            throw std::runtime_error("can not attach dead team");
+        }
         if (!this->leader->isAlive())
         {
             this->leader = findClosest(this->leader->getLocation());
-        }
-        if (this->leader == nullptr)
-        {
-            return;
         }
 
         Character *victim = enemyTeam->findNextVictim(this->leader);

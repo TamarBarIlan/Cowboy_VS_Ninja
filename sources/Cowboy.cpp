@@ -2,14 +2,14 @@
 using namespace ariel;
 using namespace std;
 
-
 Cowboy::Cowboy(const string &name, const Point &location)
     : Character(name, location, 110), boollets(6)
 {
 }
 
 Cowboy::Cowboy(Cowboy &other) : Character(other), boollets(other.boollets)
- {}
+{
+}
 
 Cowboy &Cowboy::operator=(Cowboy &other)
 {
@@ -50,13 +50,18 @@ bool Cowboy::hasboolets()
 
 void Cowboy::reload()
 {
-    if (this->isAlive())
+
+    if(this->isAlive() == false)
     {
-        boollets = 6;
+        throw runtime_error("The cowboy is dead cant reload");
     }
     else
     {
-        throw runtime_error("The cowboy is dead cant reload");
+        this->boollets += 6;
+        if(this->boollets > 6)
+        {
+            this->boollets = 6;
+        }
     }
 }
 
@@ -65,15 +70,19 @@ int Cowboy::getBoollets()
     return boollets;
 }
 
-std::string Cowboy::print() {
-    
+std::string Cowboy::print()
+{
+
     std::stringstream ss;
 
     ss << "C: ";
 
-    if (this->getHitPoints() <= 0) {
+    if (this->getHitPoints() <= 0)
+    {
         ss << "(" << this->getName() << ") ";
-    } else {
+    }
+    else
+    {
         ss << this->getName() << " " << this->getHitPoints() << " ";
     }
 

@@ -21,7 +21,7 @@ namespace ariel
         Character &operator=(Character &other);
         virtual ~Character() = default;
         bool isAlive();
-        double distance(const Character &other); // const***********
+        double distance(const Character &other); 
         void hit(int damage);
         std::string getName();
         Point getLocation();
@@ -29,10 +29,8 @@ namespace ariel
         int getHitPoints();
         bool getInTeam();
         void setInTeam(bool ans);
-        virtual std::string print()
-        {
-            return "Character: ";
-        }
+        double distance(Character* other);
+        virtual std::string print() = 0;
     };
 }
 
