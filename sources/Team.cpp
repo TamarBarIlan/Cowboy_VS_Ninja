@@ -6,7 +6,6 @@ namespace ariel
 
     Team::Team(Character *leader) : leader(leader)
     {
-        // this->fighters.push_back(leader);
         this->add(leader);
     }
 
@@ -30,7 +29,6 @@ namespace ariel
             {
                 fighters.push_back(fighter);
             }
-            // this->fighters.push_back(fighter);
             fighter->setInTeam(true);
         }
     }
@@ -55,10 +53,14 @@ namespace ariel
 
         for (const auto &fighter : this->fighters)
         {
-            if (fighter->isAlive() && fighter->getLocation().distance(leader->getLocation()) < minDistance)
+            if (fighter->isAlive())
             {
-                closest = fighter;
-                minDistance = fighter->getLocation().distance(leader->getLocation());
+                double currentDistance = fighter->getLocation().distance(location);
+                if (currentDistance < minDistance)
+                {
+                    minDistance = currentDistance;
+                    closest = fighter;
+                }
             }
         }
         return closest;
@@ -79,14 +81,19 @@ namespace ariel
         {
             throw std::runtime_error("can not attach dead team");
         }
+        
         if (!this->leader->isAlive())
         {
-            this->leader = findClosest(this->leader->getLocation());
+            // Find a new leader as the closest living fighter to the previous leader
+            Point lastLeaderLocation = this->leader->getLocation();
+            this->leader = findClosest(lastLeaderLocation);
+            if (this->leader == nullptr)
+            {
+                throw std::runtime_error("No living leader could be found");
+            }
         }
 
         Character *victim = enemyTeam->findNextVictim(this->leader);
-        // while (victim != nullptr && this->stillAlive() > 0)
-        // {
         for (auto &fighter : this->fighters)
         {
             if (fighter->isAlive())
@@ -128,9 +135,6 @@ namespace ariel
                 }
             }
         }
-        // }
-        // cout << "this Team after attack : \n" << this->print() << endl;
-        // cout << "enemy Team after attack : \n" << enemyTeam->print() << endl;
     }
 
     std::string Team::print() const
@@ -149,33 +153,3 @@ namespace ariel
         return this->fighters;
     }
 }
-
-// #include "Team.hpp"
-
-// using namespace std;
-
-// namespace ariel
-// {
-//     Team::Team(Character * leader) : leader(leader)
-//     {
-//     }
-
-//     void Team::add(Character * character)
-//     {
-//         // std::unique_ptr<Character> character_ptr(character);
-//     }
-
-//     void Team::attack(Team * enemyTeam)
-//     {
-//         // Team& enemy = *enemyTeam;
-//     }
-
-//     int Team::stillAlive() const
-//     {
-//         return 0;
-//     }
-
-//     std::string Team::print() const
-//     {
-//     }
-// }

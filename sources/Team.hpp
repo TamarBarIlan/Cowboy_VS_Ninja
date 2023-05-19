@@ -1,3 +1,4 @@
+
 #ifndef TEAM_HPP
 #define TEAM_HPP
 
@@ -22,7 +23,7 @@ namespace ariel
     public:
         Team(Character *leader);
         ~Team() = default;
-        virtual void add(Character *fight);
+        virtual void add(Character *fighter);
         void attack(Team *enemyTeam);
         int stillAlive() const;
         std::string print() const;
