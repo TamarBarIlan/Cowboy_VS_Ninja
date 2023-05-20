@@ -73,15 +73,19 @@ namespace ariel
 
     void Team::attack(Team *enemyTeam)
     {
-        if (enemyTeam == nullptr || leader == nullptr)
+        if (enemyTeam == nullptr)
         {
-            throw invalid_argument("Enemy/leader is nullptr");
+            throw invalid_argument("Enemy is nullptr");
+        }
+        if (leader == nullptr)
+        {
+            throw invalid_argument("Enemy is nullptr");
         }
         if (!enemyTeam->stillAlive())
         {
             throw std::runtime_error("can not attach dead team");
         }
-        
+
         if (!this->leader->isAlive())
         {
             // Find a new leader as the closest living fighter to the previous leader
@@ -148,8 +152,13 @@ namespace ariel
         return result;
     }
 
-    vector<Character*>& Team::getFighters()
+    vector<Character *> &Team::getFighters()
     {
         return this->fighters;
+    }
+
+    void Team ::setLeader(Character *leader)
+    {
+        this->leader = leader;
     }
 }

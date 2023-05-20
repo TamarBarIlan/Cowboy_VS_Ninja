@@ -27,9 +27,10 @@ namespace ariel
         void attack(Team *enemyTeam);
         int stillAlive() const;
         std::string print() const;
-        Character* findNextVictim(Character* leader);
+        virtual Character* findNextVictim(Character* leader);
         Character* findClosest(Point location);
         std::vector<Character*>& getFighters();
+        void setLeader(Character *leader);
     };
 
 }

@@ -1,6 +1,8 @@
 #ifndef SmartTEAM_HPP
 #define SmartTEAM_HPP
 
+#include <unordered_map>
+
 #include "Team.hpp"
 
 #include <vector>
@@ -10,6 +12,9 @@ namespace ariel
     {
     public:
         SmartTeam(Character *leader);
+        void chooseLeader();
+        Character *findNextVictim(Character *leader) override;
+        // void setLeader(Character *leader);
     };
 }
 

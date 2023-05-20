@@ -11,7 +11,7 @@ private:
     double x;
     double y;
 public:
-    Point ();
+    // Point ();
     Point(double x = 0, double y = 0);
     double distance(const Point &other) const;
     std::string print();
