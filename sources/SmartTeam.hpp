@@ -13,7 +13,8 @@ namespace ariel
         SmartTeam(Character *leader);
         void chooseLeader();
         Character *findNextVictim(Character *leader) override;
-        // void setLeader(Character *leader);
+        void attack(Team *enemyTeam) override;
+        // void add(Character *fighter) override;
     };
 }
 

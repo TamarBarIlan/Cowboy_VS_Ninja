@@ -71,41 +71,6 @@ int main()
 
    //****original demo****
 
-   Point a(32.3, 44), b(1.3, 3.5);
-   assert(a.distance(b) == b.distance(a));
-   Cowboy *tom = new Cowboy("Tom", a);
-   OldNinja *sushi = new OldNinja("sushi", b);
-   tom->shoot(sushi);
-   cout << tom->print() << endl;
-
-   sushi->move(tom);
-   sushi->slash(tom);
-
-   Team team_A(tom);
-   team_A.add(new YoungNinja("Yogi", Point(64, 57)));
-
-   // Team b(tom); should throw tom is already in team a
-
-   Team team_B(sushi);
-   team_B.add(new TrainedNinja("Hikari", Point(12, 81)));
-
-   while (team_A.stillAlive() > 0 && team_B.stillAlive() > 0)
-   {
-      team_A.attack(&team_B);
-      team_B.attack(&team_A);
-      cout << team_A.print() << endl;
-      cout << team_B.print() << endl;
-   }
-
-   if (team_A.stillAlive() > 0)
-      cout << "winner is team_A" << endl;
-   else
-      cout << "winner is team_B" << endl;
-
-   return 0;
-
-   //****chack SmartTeam****
-
    // Point a(32.3, 44), b(1.3, 3.5);
    // assert(a.distance(b) == b.distance(a));
    // Cowboy *tom = new Cowboy("Tom", a);
@@ -116,12 +81,12 @@ int main()
    // sushi->move(tom);
    // sushi->slash(tom);
 
-   // SmartTeam team_A(tom);
+   // Team team_A(tom);
    // team_A.add(new YoungNinja("Yogi", Point(64, 57)));
 
    // // Team b(tom); should throw tom is already in team a
 
-   // SmartTeam team_B(sushi);
+   // Team team_B(sushi);
    // team_B.add(new TrainedNinja("Hikari", Point(12, 81)));
 
    // while (team_A.stillAlive() > 0 && team_B.stillAlive() > 0)
@@ -138,4 +103,39 @@ int main()
    //    cout << "winner is team_B" << endl;
 
    // return 0;
+
+   //****chack SmartTeam****
+
+   Point a(32.3, 44), b(1.3, 3.5);
+   assert(a.distance(b) == b.distance(a));
+   Cowboy *tom = new Cowboy("Tom", a);
+   OldNinja *sushi = new OldNinja("sushi", b);
+   tom->shoot(sushi);
+   cout << tom->print() << endl;
+
+   sushi->move(tom);
+   sushi->slash(tom);
+
+   SmartTeam team_A(tom);
+   team_A.add(new YoungNinja("Yogi", Point(64, 57)));
+
+   // Team b(tom); should throw tom is already in team a
+
+   SmartTeam team_B(sushi);
+   team_B.add(new TrainedNinja("Hikari", Point(12, 81)));
+
+   while (team_A.stillAlive() > 0 && team_B.stillAlive() > 0)
+   {
+      team_A.attack(&team_B);
+      team_B.attack(&team_A);
+      cout << team_A.print() << endl;
+      cout << team_B.print() << endl;
+   }
+
+   if (team_A.stillAlive() > 0)
+      cout << "winner is team_A" << endl;
+   else
+      cout << "winner is team_B" << endl;
+
+   return 0;
 }

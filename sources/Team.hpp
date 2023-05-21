@@ -24,7 +24,7 @@ namespace ariel
         Team(Character *leader);
         ~Team() = default;
         virtual void add(Character *fighter);
-        void attack(Team *enemyTeam);
+        virtual void attack(Team *enemyTeam);
         int stillAlive() const;
         std::string print() const;
         virtual Character* findNextVictim(Character* leader);

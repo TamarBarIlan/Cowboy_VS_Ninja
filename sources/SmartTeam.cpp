@@ -5,7 +5,12 @@ using namespace std;
 
 SmartTeam::SmartTeam(Character *leader) : Team(leader)
 {
+}
+
+void SmartTeam::attack(Team *enemyTeam)
+{
     this->chooseLeader();
+    Team::attack(enemyTeam);
 }
 
 void SmartTeam::chooseLeader()
@@ -40,7 +45,7 @@ void SmartTeam::chooseLeader()
     // pick a random living character as the leader.
     if (nextLeader == nullptr)
     {
-        std::vector<Character*> livingFighters;
+        std::vector<Character *> livingFighters;
         for (const auto &fighter : this->getFighters())
         {
             if (fighter->isAlive())
@@ -53,7 +58,7 @@ void SmartTeam::chooseLeader()
         {
             std::random_device rd;
             std::mt19937 gen(rd());
-            std::uniform_int_distribution<std::vector<Character*>::size_type> distrib(0, livingFighters.size() - 1);
+            std::uniform_int_distribution<std::vector<Character *>::size_type> distrib(0, livingFighters.size() - 1);
 
             nextLeader = livingFighters[distrib(gen)];
         }
@@ -64,10 +69,9 @@ void SmartTeam::chooseLeader()
     {
         throw std::runtime_error("No suitable leader could be found");
     }
-    
+
     this->setLeader(nextLeader);
 }
-
 
 Character *SmartTeam::findNextVictim(Character *leader)
 {
