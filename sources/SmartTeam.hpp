@@ -2,10 +2,9 @@
 #define SmartTEAM_HPP
 
 #include <unordered_map>
-
 #include "Team.hpp"
-
 #include <vector>
+
 namespace ariel
 {
     class SmartTeam : public Team
