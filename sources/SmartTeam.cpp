@@ -54,21 +54,21 @@ void SmartTeam::chooseLeader()
             }
         }
 
-        if (!livingFighters.empty())
+        for (const auto &fighter : this->getFighters())
         {
-            std::random_device rd;
-            std::mt19937 gen(rd());
-            std::uniform_int_distribution<std::vector<Character *>::size_type> distrib(0, livingFighters.size() - 1);
-
-            nextLeader = livingFighters[distrib(gen)];
+            if (fighter->isAlive())
+            {
+                nextLeader = fighter;
+                break;
+            }
         }
     }
 
     // If there are no living characters in the team, the team has lost.
-    if (nextLeader == nullptr)
-    {
-        throw std::runtime_error("No suitable leader could be found");
-    }
+    // if (nextLeader == nullptr)
+    // {
+    //     throw std::runtime_error("No suitable leader could be found");
+    // }
 
     this->setLeader(nextLeader);
 }
@@ -76,7 +76,7 @@ void SmartTeam::chooseLeader()
 Character *SmartTeam::findNextVictim(Character *leader)
 {
     std::unordered_map<Character *, int> enemyCounts;
-    bool ninjaAlive = false; // flag to track if any ninja is alive
+    bool ninjaAlive = false; 
 
     for (const auto &fighter : this->getFighters())
     {

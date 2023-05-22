@@ -14,7 +14,6 @@ namespace ariel
         void chooseLeader();
         Character *findNextVictim(Character *leader) override;
         void attack(Team *enemyTeam) override;
-        // void add(Character *fighter) override;
     };
 }
 
